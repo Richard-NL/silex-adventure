@@ -1,10 +1,9 @@
 <?php
 
-
 namespace Rsh\Adventure\Action;
 
 
-class NoAction
+class NoAction extends Action
 {
 
 }

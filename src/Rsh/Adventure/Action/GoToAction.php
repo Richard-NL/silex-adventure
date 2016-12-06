@@ -4,7 +4,7 @@
 namespace Rsh\Adventure\Action;
 
 
-class GoToAction
+class GoToAction extends Action
 {
 
 }

@@ -4,7 +4,7 @@
 namespace Rsh\Adventure\Action;
 
 
-class InventoryAction
+class InventoryAction extends Action
 {
 
 }

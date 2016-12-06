@@ -4,7 +4,7 @@
 namespace Rsh\Adventure\Action;
 
 
-class ExitAction
+class ExitAction extends Action
 {
 
 }

@@ -4,7 +4,5 @@
 namespace Rsh\Adventure\Action;
 
 
-class Action
-{
-
-}
+abstract class Action
+{}

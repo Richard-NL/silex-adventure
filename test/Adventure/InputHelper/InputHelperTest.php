@@ -58,6 +58,7 @@ class InputHelperTest extends \PHPUnit_Framework_TestCase
         ];
     }
 
+
     /**
      * @dataProvider exitTestDataProvider
      */
@@ -90,14 +91,6 @@ class InputHelperTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertSame($expected, $this->inputHelper->isGoToWithDirectionTyped($text));
     }
-
-
-//    public function testIsGoWithDirectionValid(string $text, string $currentLocationName, bool $expected)
-//    {
-//        $directionService = $this->prophesize(DirectionServiceIf::class);
-//        $directionService->getDirections(Argument::is('Foo'))->willReturn(['North', 'West', 'South', 'East']);
-//        $this->assertSame($expected, $this->inputHelper->isGoToWithDirectionValid($text, $currentLocationName, $directionService->reveal()));
-//    }
 
     /**
      * @dataProvider goToWithDirectionValidProvider

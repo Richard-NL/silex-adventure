@@ -10,7 +10,7 @@ use Rsh\Adventure\Action\GoToAction;
 use Rsh\Adventure\Action\InventoryAction;
 use Rsh\Adventure\Action\NoAction;
 
-class ActionHandlerTest extends \PHPUnit_Framework_TestCase
+class ActionStrategyTest extends \PHPUnit_Framework_TestCase
 {
     public function getActionDataProvider(): array
     {
@@ -41,7 +41,7 @@ class ActionHandlerTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetAction($inputHelper, $expected, $text)
     {
-        $action = (new ActionHandler($inputHelper))->getAction($text);
+        $action = (new ActionStrategy($inputHelper))->getAction($text);
         $this->assertSame($expected, get_class($action));
     }
 }

@@ -2,7 +2,7 @@
 namespace Rsh\Adventure\Command;
 
 use Knp\Command\Command;
-use Rsh\Adventure\InputHelper\ActionHandler;
+use Rsh\Adventure\InputHelper\ActionStrategy;
 use Rsh\Adventure\Service\DirectionServiceClient;
 use Rsh\Adventure\InputHelper\InputHelper;
 use Symfony\Component\Console\Input\InputInterface;
@@ -38,7 +38,7 @@ class AdventureCommand extends Command
         $question = new Question('>', false);
 
         $userInputText = trim($helper->ask($input, $output, $question));
-        $actionHandler = new ActionHandler($inputHelper);
+        $actionHandler = new ActionStrategy($inputHelper);
         $action = $actionHandler->getAction($userInputText);
         $output->writeln(get_class($action) . ' instance found');
         

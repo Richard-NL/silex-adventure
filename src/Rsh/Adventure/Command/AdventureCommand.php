@@ -14,7 +14,6 @@ use Rsh\Adventure\Action\Subject\NoSubject;
 
 class AdventureCommand extends Command
 {
-    private $directionServiceClient;
 
     public function __construct($name = null)
     {

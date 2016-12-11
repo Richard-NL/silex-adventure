@@ -2,30 +2,28 @@
 
 namespace Rsh\Adventure\Action;
 
-use \Rsh\Adventure\InputHelper\InputHelper;
 
 class ActionStrategy
 {
-    private $inputHelper;
 
-    public function __construct(InputHelper $inputHelper)
-    {
-        $this->inputHelper = $inputHelper;
-    }
+    const actionClasses = [
+        ExitAction::class,
+        GoToAction::class,
+        InventoryAction::class,
+//        NoAction::class
+    ];
+
 
     public function getAction($userInputText): Action
     {
-        if ($this->inputHelper->isExitTyped($userInputText)) {
-            return new ExitAction();
+        foreach (self::actionClasses as $actionClass) {
+            /** @var Action $action */
+            $action = new $actionClass($userInputText);
+            if ($action->isMatchOnText()) {
+                return $action;
+            }
         }
 
-        if ($this->inputHelper->isInventoryTyped($userInputText)) {
-            return new InventoryAction();
-        }
-
-        if ($this->inputHelper->isGoToTyped($userInputText) || $this->inputHelper->isGoToWithDirectionTyped($userInputText)) {
-            return new GoToAction();
-        }
-        return new NoAction();
+        return new NoAction($userInputText);
     }
 }

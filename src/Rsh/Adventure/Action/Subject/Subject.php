@@ -1,17 +1,20 @@
 <?php
 
+
 namespace Rsh\Adventure\Action\Subject;
 
 
-abstract class Subject
+class Subject implements SubjectInterface
 {
-    /** @var  string $name */
-    private $name;
+    protected $name;
 
-    public function __construct(string $name)
+    public function __construct($name)
     {
         $this->name = $name;
     }
 
-    public abstract function getName(): string;
+    public function getName(): string
+    {
+        return $this->name;
+    }
 }

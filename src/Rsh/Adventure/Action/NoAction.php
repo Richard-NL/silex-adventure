@@ -8,7 +8,12 @@ use Rsh\Adventure\Exception\MethodNotImplemented;
 class NoAction extends Action
 {
 
-    public function handleSubject(\Rsh\Adventure\Action\Subject\Subject $subject)
+    public function execute()
+    {
+        throw new MethodNotImplemented();
+    }
+
+    public function isMatchOnText(): bool
     {
         throw new MethodNotImplemented();
     }

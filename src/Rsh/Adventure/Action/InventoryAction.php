@@ -6,9 +6,15 @@ namespace Rsh\Adventure\Action;
 
 class InventoryAction extends Action
 {
+    const INPUT_TEXT_INVENTORY = 'inventory';
 
-    public function handleSubject(\Rsh\Adventure\Action\Subject\Subject $subject)
+    public function execute()
     {
-        // TODO: Implement handleSubject() method.
+        throw new MethodNotImplemented();
+    }
+
+    public function isMatchOnText(): bool
+    {
+        return $this->text === self::INPUT_TEXT_INVENTORY;
     }
 }

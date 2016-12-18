@@ -37,7 +37,7 @@ class AdventureCommand extends Command
         // @todo di container?
         $directionServiceClient = DirectionServiceClient::create();
 
-        $currentLocation = 'A large hole on the Surface';
+        $currentLocation = 'Gates to Hell';
 
         $exitCommand = false;
         while (!$exitCommand) {
@@ -69,17 +69,17 @@ class AdventureCommand extends Command
                     return;
                 }
 
-                if ($action->getSubject()->getName() instanceof NoSubject) {
-                    $output->writeln('Where do you want to go?');
+                if ($action->getSubject() instanceof NoSubject) {
+                    $output->writeln('<info>Where do you want to go?</info>');
                     $directionsNames = $directionServiceClient->getDirections($currentLocation);
                     foreach ($directionsNames as $directionName) {
-                        $output->writeln($directionName);
+                        $output->writeln(' - '. $directionName);
                     }
 
                     return;
                 }
 
-                $output->writeln('Going to location ' . $action->getSubject()->getName() . ' (Well not realy)');
+                $output->writeln('Going to location ' . $action->getSubject()->getName() . ' (Well not realy not yet implemented)');
                 return;
 
             })();

@@ -3,7 +3,7 @@
         "silex/silex": "~2.0",
         "knplabs/console-service-provider": "^2.0",
         "apache/thrift": "0.9.3",
-        "lisachenko/go-aop-php": "^0.6.1"
+        "goaop/framework": "^0.6.1"
     },
     
     "require-dev": {

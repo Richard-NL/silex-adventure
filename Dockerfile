@@ -41,4 +41,4 @@ WORKDIR /code
 # add the current contents to code
 ADD . /code
 
-CMD composer install
+#CMD composer install

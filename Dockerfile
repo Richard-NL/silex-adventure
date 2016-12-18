@@ -35,5 +35,10 @@ RUN curl -sS https://getcomposer.org/installer | php \
 # create dir in container named code
 RUN mkdir /code
 
+# When connected to the container go to the /code folder
+WORKDIR /code
+
 # add the current contents to code
 ADD . /code
+
+CMD composer install

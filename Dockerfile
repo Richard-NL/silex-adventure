@@ -35,6 +35,9 @@ RUN curl -sS https://getcomposer.org/installer | php \
 # create dir in container named code
 RUN mkdir /code
 
+# Get composer dependencies
+RUN composer install
+
 # When connected to the container go to the /code folder
 WORKDIR /code
 
@@ -53,8 +56,6 @@ RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 
-# Get composer dependencies
-CMD composer install
 
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]

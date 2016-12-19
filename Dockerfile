@@ -38,12 +38,14 @@ RUN mkdir /code
 # When connected to the container go to the /code folder
 WORKDIR /code
 
+# add the current contents to code
+ADD . /code
+
 # Get composer dependencies
 RUN composer --working-dir=/code install
 
 
-# add the current contents to code
-ADD . /code
+
 
 # ssh install
 RUN apt-get update && apt-get install -y openssh-server
